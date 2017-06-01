@@ -2,20 +2,21 @@
   "name": "final",
   "version": "1.0.0",
   "description": "final",
-  "main": "index.js",
+  "main": "server.js",
   "directories": {
     "test": "node_modules/.bin/mocha ./tests/**.js || true"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "Kenia Farias",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
-    "jquery": "^3.2.1",
     "knex": "^0.13.0",
+    "md5": "^2.2.1",
     "nodemon": "^1.11.0",
     "pg": "^6.2.3"
   },
@@ -23,8 +24,6 @@
     "chai": "^4.0.1",
     "chai-http": "^3.0.0",
     "chai-jquery": "^2.0.0",
-    "md5": "^2.2.1",
-    "jquery": "^3.2.1",
     "mocha": "^3.4.2",
     "mocha-jsdom": "^1.1.0"
   }

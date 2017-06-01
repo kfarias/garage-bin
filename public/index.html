@@ -1,39 +1,44 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Garage Bin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
     <link rel="stylesheet" type="text/css" href="./styles/reset.css">
     <link rel="stylesheet" type="text/css" href="./styles/styles.css">
   </head>
   <body>
-    <h1 class="app-title">Garage Bin</h1>
-    <div class='garage-cover'></div>
-    <div class='container'>
-      <div class='break'></div>
-      <p class='title'>Items</p>
-      <hr>
-      <!-- <button class='sort-btn'>Sort</button> -->
-      <div class='indv-info-pop-up'></div>
-      <div class='item-list'>
-      </div>
-      <div class='array-list'></div>
-      <form class='post-form'>
-        <input class='item-input' placeholder='enter your item name'>
-        <input class='whyItStays-input' placeholder='enter why it stays'>
-        <select class='cleanliness-input'>
-          <option value='sparkling'>Sparkling</option>
-          <option value='dusty'>Dusty</option>
-          <option value='rancid'>Rancid</option>
-        </select>
-        <button class='submit-btn'>sumbit</button>
-      </form>
+    <h1 id="title">Garage Bin</h1>
 
-</div>
-<button class='open-btn'>Garage Door Control</button>
+    <section id="close-garage-display">
+      <button type="button" class="open-btn">Open Garage!</button>
+    </section>
+
+    <div id="open-garage-display">
+      <section class='items-container'>
+        <div class='items-conatiner'>
+          <h2 class='items-title'>Here's your Things!</h2>
+        </div>
+        <ul class='items-list'>
+        </ul>
+      </section>
+      <button class='sort-btn btn'>Sort A-Z</button>
+      <div class="add-items">
+        <input class="name-input" placeholder="Name"></input>
+        <input class="whyItStays-input" placeholer="Reason"></input>
+        <select class="cleanliness-input" name="Cleanliness">
+          <option value="Sparkling">Sparkling</option>
+          <option value="Dusty">Dusty</option>
+          <option value="Rancid">Rancid</option>
+        </select>
+      </div>
+      <button class="add-items-btn">Submit</button>
+      <button class="close-btn">Close Garage</button>
+    </div>
   </body>
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'></script>
-  <script>window.jQuery || document.write('<script src="js/jquery-3.2.1.min.js"><\/script>')</script>
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+  </script>
   <script type="text/javascript" src="./index.js"></script>
-  <script src='./index.js'></script>
 </html>

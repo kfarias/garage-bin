@@ -1,7 +1,8 @@
 const express = require('express');
-const bodyParser = require('body-parser');
-
 const app = express();
+const bodyParser = require('body-parser');
+const fs = require('fs');
+
 
 const enviroment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[enviroment];
@@ -12,8 +13,7 @@ app.locals.title = 'Garage Bin';
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(express.static('lib'));
+app.use(express.static('public'));
 
 app.get('/', (request, response ) => {
   fs.readFile(`${__dirname}/index.html`, (err, file) => {
@@ -89,46 +89,21 @@ app.put('/api/v1/items/:id/edit', (request, response) => {
     });
 })
 
+//delete item out of garage
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.delete('/api/v1/items/:id', (request, response) => {
+  const { id } = request.params;
+  database('items').where('id', id).del()
+  .then(() => {
+    database('items').select()
+    .then((items) => {
+      response.status(204).json(items);
+    })
+    .catch((error) => {
+      response.status(404).send('resource not found')
+    });
+  });
+});
 
 
 app.listen(app.get('port'), () => {

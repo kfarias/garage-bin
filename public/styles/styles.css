@@ -1,110 +1,63 @@
-.app-title {
-  text-align: center;
-  margin-top: 30px;
-  color: white;
-}
-
-body {
-  background-color: cornflowerblue;
-  font-family: "Helvetica Neue";
-}
-
-.container {
-  background-color: white;
-  width: 560px;
-  height: 400px;
-  margin: 60px auto;
-  padding: 1px 20px;
+body{
+  height: 100%;
+  background-color: #84828F;
+  font-family: 'Raleway', sans-serif;
 }
 
 h1 {
-  font-weight: 100;
-  font-size: 42px;
+  color: #F0F7F4;
   text-align: center;
-  margin-top: 40px;
+  font-size: 45px;
+  font-weight: bold;
+  margin: 10px;
 }
 
-/*.garage-cover {
-  z-index: 4;
-  background-color: gray;
-  transition: 5s;
-  height: 400px;
-  width: 600px;
-  position: absolute;
-  margin-top: 60px;
-  margin-left: auto;
-  margin-right: auto;
-  left: 0;
-  right: 0;
-}*/
-
-.open {
-  height: 20px;
-  background-color: lightblue;
-}
-
-.array-list {
-  position: absolute;
-  bottom: 230px;
-}
-
-.title {
-  color: gray;
-  font-size: 20px;
-  margin-left: 10px;
-  margin-top: 25px;
-}
-
-.sort-btn {
-  float: right;
-}
-
-.open-btn {
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  border: none;
-  background-color: black;
+button{
+  background-color:#EB5160;
   color: white;
-}
-
-.submit-btn {
   border: none;
-  background-color: black;
-  color: white;  
-}
-
-.lengths {
-  display: inline-block;
-  font-size: 10px;
-}
-
-.post-form {
-  position: absolute;
-  bottom: 200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.indv-info-pop-up {
-  float: right;
-  border: 1px solid lightblue;
+  font-family: 'Raleway', sans-serif;
+  height: 30px;
   padding: 10px;
-  height: 200px;
-  position: relative;
+  display: table;
+  margin: 10px auto
 }
 
-.indv-item {
-  margin: 10px;
-  font-size: 16px;
+.garage-item{
+  margin-top: 10px;
+  text-align: center;
 }
 
-.indv-why {
-  margin: 10px;
-  font-size: 13px;
+.items-title{
+  text-align: center;
+  margin-top: 20px;
+  color: #F0F7F4;
 }
 
-.indv-clean {
-  margin: 10px;
-  font-size: 10px;
+.add-items {
+  display: flex;
+  justify-content: center;
 }
+
+.name-input, .reason-input {
+  margin-right: 5px;
+}
+
+.items-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.garage-item {
+  border: 2px solid white;
+  padding: 20px;
+  width: 80px;
+}
+
+/*
+#32292F
+#C1DBE3
+#F0F7F4
+#EB5160
+#84828F
+*/
