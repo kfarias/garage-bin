@@ -62,6 +62,16 @@ h1 {
 .open-btn {
   display: block;
   margin: 0 auto;
+  margin-bottom: 20px;
+  border: none;
+  background-color: black;
+  color: white;
+}
+
+.submit-btn {
+  border: none;
+  background-color: black;
+  color: white;  
 }
 
 .lengths {
