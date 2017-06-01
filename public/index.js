@@ -1,6 +1,6 @@
 console.log('hello');
 $( document ).ready(function() {
-    console.log( "ready!" );
+  console.log( "ready!" );
 });
 
 
@@ -41,7 +41,7 @@ const appendItems = (allItems) => {
   allItems.forEach((item) => {
     $('.items-list').append(
       `
-        <li class='garage-item'>${item.name}</li>
+      <li class='garage-item'>${item.name}</li>
 
       `
     )

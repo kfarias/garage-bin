@@ -3,11 +3,8 @@
   "version": "1.0.0",
   "description": "final",
   "main": "server.js",
-  "directories": {
-    "test": "node_modules/.bin/mocha ./tests/**.js || true"
-  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node_modules/.bin/mocha ./tests/**.js",
     "start": "node server.js"
   },
   "author": "Kenia Farias",
