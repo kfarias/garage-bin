@@ -1,0 +1,25 @@
+{
+  "name": "final",
+  "version": "1.0.0",
+  "description": "final",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kenia Farias",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.0.1",
+    "chai-http": "^3.0.0",
+    "jquery": "^3.2.1",
+    "mocha": "^3.4.2"
+  }
+}
