@@ -3,12 +3,34 @@
   <head>
     <meta charset="utf-8">
     <title>Garage Bin</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="./styles/reset.css">
+    <link rel="stylesheet" type="text/css" href="./styles/styles.css">
   </head>
   <body>
-    <h1>Garage Bin</h1>
+    <h1 class="app-title">Garage Bin</h1>
+    <div class='garage-cover'></div>
+    <div class='container'>
+      <div class='break'></div>
+      <p class='title'>Items</p>
+      <hr>
+      <!-- <button class='sort-btn'>Sort</button> -->
+      <div class='indv-info-pop-up'></div>
+      <div class='item-list'>
+      </div>
+      <div class='array-list'></div>
+      <form class='post-form'>
+        <input class='item-input' placeholder='enter your item name'>
+        <input class='whyItStays-input' placeholder='enter why it stays'>
+        <select class='cleanliness-input'>
+          <option value='sparkling'>Sparkling</option>
+          <option value='dusty'>Dusty</option>
+          <option value='rancid'>Rancid</option>
+        </select>
+        <button class='submit-btn'>sumbit</button>
+      </form>
 
+</div>
+<button class='open-btn'>Garage Door Control</button>
   </body>
   <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js' type='text/javascript'></script>
   <script src='./index.js'></script>

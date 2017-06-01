@@ -1,0 +1,100 @@
+.app-title {
+  text-align: center;
+  margin-top: 30px;
+  color: white;
+}
+
+body {
+  background-color: cornflowerblue;
+  font-family: "Helvetica Neue";
+}
+
+.container {
+  background-color: white;
+  width: 560px;
+  height: 400px;
+  margin: 60px auto;
+  padding: 1px 20px;
+}
+
+h1 {
+  font-weight: 100;
+  font-size: 42px;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/*.garage-cover {
+  z-index: 4;
+  background-color: gray;
+  transition: 5s;
+  height: 400px;
+  width: 600px;
+  position: absolute;
+  margin-top: 60px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+}*/
+
+.open {
+  height: 20px;
+  background-color: lightblue;
+}
+
+.array-list {
+  position: absolute;
+  bottom: 230px;
+}
+
+.title {
+  color: gray;
+  font-size: 20px;
+  margin-left: 10px;
+  margin-top: 25px;
+}
+
+.sort-btn {
+  float: right;
+}
+
+.open-btn {
+  display: block;
+  margin: 0 auto;
+}
+
+.lengths {
+  display: inline-block;
+  font-size: 10px;
+}
+
+.post-form {
+  position: absolute;
+  bottom: 200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.indv-info-pop-up {
+  float: right;
+  border: 1px solid lightblue;
+  padding: 10px;
+  height: 200px;
+  position: relative;
+}
+
+.indv-item {
+  margin: 10px;
+  font-size: 16px;
+}
+
+.indv-why {
+  margin: 10px;
+  font-size: 13px;
+}
+
+.indv-clean {
+  margin: 10px;
+  font-size: 10px;
+}
