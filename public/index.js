@@ -44,7 +44,11 @@ const displayItems = (allItems) => {
   allItems.forEach((item) => {
     $('.items-list').prepend(
       `
-      <li class='garage-item'>${item.name}</li>
+      <div class='garage-item'>
+        ${item.name}
+        <p class='item-info'> Reason: ${item.whyItStays}</p>
+        <p class='cleanliness-text'> ${item.cleanliness}</p>
+      </div>
 
       `
     )
@@ -64,11 +68,8 @@ const countArrayLengths = (sparklingArr, dustyArr, rancidArr) => {
 
 const submitNewItem = () => {
   const name = $('.name-input').val();
-  console.log(name);
   const whyItStays = $('.whyItStays-input').val();
-  console.log(whyItStays);
   const cleanliness = $('.cleanliness-input').val();
-  console.log(cleanliness);
   addNewItems(name, whyItStays, cleanliness);
 }
 
@@ -77,7 +78,6 @@ const itemCount = (allItems) => {
   let dustyArr = []
   let rancidArr = []
   allItems.map((item) => {
-    console.log(item.cleanliness);
     if(item.cleanliness == 'sparkling') {
       sparklingArr.push(item.cleanliness)
     } else if(item.cleanliness == 'dusty') {
@@ -99,8 +99,9 @@ const addNewItems = (name, whyItStays, cleanliness) => {
     console.log(response);
     return response.json();
   })
-  .then((newItems) => {
-    displayItems(newItems);
+  .then((newItem) => {
+    console.log(newItem);
+    displayItems(newItem);
   });
 };
 

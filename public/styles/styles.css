@@ -66,11 +66,26 @@ button{
   flex-wrap: wrap;
 }
 .garage-item {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
   border: 2px solid #F0F7F4;
-  color: #32292F;
-  padding: 20px;
+  text-align: left;
+  color: white;
+  padding: 30px;
   width: 80px;
   margin: 5px;
+}
+
+.item-info, .cleanliness-text{
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  color: #32292F;
+}
+
+.cleanliness-text {
+  color: #F0F7F4;
 }
 
 /*
