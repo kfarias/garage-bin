@@ -25,7 +25,10 @@ $('.add-items-btn').on('click', () => {
 })
 
 
-
+const clear = () => {
+  $('.items-list').empty();
+  $('.array-list').empty();
+}
 
 const closeGarage = () => {
   $('#open-garage-display').hide();
@@ -37,9 +40,9 @@ const openGarage = () => {
   fetchItems()
 }
 
-const appendItems = (allItems) => {
+const displayItems = (allItems) => {
   allItems.forEach((item) => {
-    $('.items-list').append(
+    $('.items-list').prepend(
       `
       <li class='garage-item'>${item.name}</li>
 
@@ -97,7 +100,7 @@ const addNewItems = (name, whyItStays, cleanliness) => {
     return response.json();
   })
   .then((newItems) => {
-    appendItems(newItems);
+    displayItems(newItems);
   });
 };
 
@@ -107,7 +110,8 @@ const fetchItems = () => {
     return response.json();
   })
   .then((allItems) => {
-    appendItems(allItems)
+    clear();
+    displayItems(allItems)
     itemCount(allItems);
   });
 };
