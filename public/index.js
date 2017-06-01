@@ -48,6 +48,17 @@ const appendItems = (allItems) => {
   })
 }
 
+const countArrayLengths = (sparklingArr, dustyArr, rancidArr) => {
+  let total = sparklingArr.length + dustyArr.length + rancidArr.length
+  $('.array-list').append(
+    `
+    <p class='lengths'>total: ${total}</p>
+    <p class='lengths'>sparkling: ${sparklingArr.length}</p>
+    <p class='lengths'>dusty: ${dustyArr.length}</p>
+    <p class='lengths'>rancid: ${rancidArr.length}</p>`
+  )
+}
+
 const submitNewItem = () => {
   const name = $('.name-input').val();
   console.log(name);
@@ -56,6 +67,23 @@ const submitNewItem = () => {
   const cleanliness = $('.cleanliness-input').val();
   console.log(cleanliness);
   addNewItems(name, whyItStays, cleanliness);
+}
+
+const itemCount = (allItems) => {
+  let sparklingArr = []
+  let dustyArr = []
+  let rancidArr = []
+  allItems.map((item) => {
+    console.log(item.cleanliness);
+    if(item.cleanliness == 'sparkling') {
+      sparklingArr.push(item.cleanliness)
+    } else if(item.cleanliness == 'dusty') {
+      dustyArr.push(item.cleanliness)
+    } else {
+      rancidArr.push(item.cleanliness)
+    }
+  })
+  countArrayLengths(sparklingArr, dustyArr, rancidArr)
 }
 
 const addNewItems = (name, whyItStays, cleanliness) => {
@@ -80,5 +108,6 @@ const fetchItems = () => {
   })
   .then((allItems) => {
     appendItems(allItems)
+    itemCount(allItems);
   });
 };

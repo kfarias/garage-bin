@@ -39,6 +39,17 @@ button{
   justify-content: center;
 }
 
+.lengths {
+  display: inline-block;
+  font-size: 10px;
+  margin: 5px;
+}
+
+.array-list {
+  display: flex;
+  justify-content: center;
+}
+
 .name-input, .reason-input {
   margin-right: 5px;
 }
