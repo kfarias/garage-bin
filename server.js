@@ -1,19 +1,20 @@
-const express = require('express');
-const app = express();
-const bodyParser = require('body-parser');
-const fs = require('fs');
-
-
 const enviroment = process.env.NODE_ENV || 'development';
+
+const express = require('express');
+const bodyParser = require('body-parser');
 const configuration = require('./knexfile')[enviroment];
 const database = require('knex')(configuration);
+const fs = require('fs');
 
-app.set('port', process.env.PORT || 3000);
-app.locals.title = 'Garage Bin';
+const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
+
+app.set('port', process.env.PORT || 3000);
+app.locals.title = 'Garage Bin';
+
 
 app.get('/', (request, response ) => {
   fs.readFile(`${__dirname}/index.html`, (err, file) => {
@@ -61,7 +62,7 @@ app.post('/api/v1/items', (request, response) => {
     }
     database('items').insert({ name, whyItStays, cleanliness }, [ 'id', 'name', 'whyItStays', 'cleanliness' ])
       .then((addedItems) => {
-        response.status(200).send(addedItems[0]);
+        response.status(201).send(addedItems[0]);
       })
       .catch((error) => {
         response.status(500).send({ error });
@@ -75,7 +76,7 @@ app.put('/api/v1/items/:id/edit', (request, response) => {
   const { cleanliness } = request.body;
 
   if (!cleanliness) {
-    return response.status(422).send('Sorry you did not pass in the correct info')
+    return response.status(404).send('Sorry you did not pass in the correct info')
   }
   database('items').where('id', id).update({ cleanliness: cleanliness })
     .then(() => {
@@ -106,8 +107,10 @@ app.delete('/api/v1/items/:id', (request, response) => {
 });
 
 
-app.listen(app.get('port'), () => {
-  console.log(`${app.locals.title} is running on ${app.get('port')}.`)
-})
+if(!module.parent) {
+  app.listen(app.get('port'), () => {
+    console.log(`${app.locals.title} is running on ${app.get('port')}.`)
+  })
+}
 
-module.exports = app
+module.exports = app;

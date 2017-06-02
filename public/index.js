@@ -40,7 +40,7 @@ const openGarage = () => {
   fetchItems()
 }
 
-const displayItems = (allItems) => {
+const prependItems = (allItems) => {
   allItems.forEach((item) => {
     $('.items-list').prepend(
       `
@@ -48,6 +48,7 @@ const displayItems = (allItems) => {
         ${item.name}
         <p class='item-info'> Reason: ${item.whyItStays}</p>
         <p class='cleanliness-text'> ${item.cleanliness}</p>
+        <button class='delete-btn'>X</button>
       </div>
 
       `
@@ -101,7 +102,7 @@ const addNewItems = (name, whyItStays, cleanliness) => {
   })
   .then((newItem) => {
     console.log(newItem);
-    displayItems(newItem);
+    prependItems(newItem);
   });
 };
 
@@ -112,7 +113,7 @@ const fetchItems = () => {
   })
   .then((allItems) => {
     clear();
-    displayItems(allItems)
+    prependItems(allItems)
     itemCount(allItems);
   });
 };

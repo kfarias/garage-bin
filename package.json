@@ -4,15 +4,19 @@
   "description": "final",
   "main": "server.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha ./tests/**.js",
+    "test": "./node_modules/.bin/mocha",
     "start": "node server.js"
   },
   "author": "Kenia Farias",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cors": "^2.8.3",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
+    "jsonwebtoken": "^7.4.1",
     "knex": "^0.13.0",
+    "babel-eslint": "^7.2.3",
     "md5": "^2.2.1",
     "nodemon": "^1.11.0",
     "pg": "^6.2.3"
@@ -21,7 +25,15 @@
     "chai": "^4.0.1",
     "chai-http": "^3.0.0",
     "chai-jquery": "^2.0.0",
-    "mocha": "^3.4.2",
-    "mocha-jsdom": "^1.1.0"
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-babel": "^4.1.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "^7.0.1",
+    "csvtojson": "^1.1.5",
+    "mocha": "^3.4.1",
+    "mocha": "^3.4.2"
   }
 }

@@ -15,10 +15,10 @@ module.exports = {
   client: 'pg',
   connection: process.env.DATABASE_URL || 'postgres://localhost/testitems',
   migrations: {
-    directory: __dirname + './db/migrations'
+    directory: __dirname + '/db/migrations'
   },
   seeds: {
-    directory: __dirname + './db/seeds/test'
+    directory: __dirname + '/db/seeds/test'
   },
     useNullAsDefault: true
   }
