@@ -2,36 +2,25 @@ $(document).ready(() => {
   closeGarage();
 });
 
-$('.open-btn').on('click', () => {
-  console.log('here');
-  openGarage();
-})
-
-$('.close-btn').on('click', () => {
-  closeGarage();
-  $('close-garage-diplay').show();
-});
-
-$('.add-items-btn').on('click', () => {
-  console.log('add-item clicked');
-  submitNewItem();
-});
+const clear = () => {
+  $('.items-list').empty();
+  $('.array-list').empty();
+};
 
 const closeGarage = () => {
   $('#open-garage-display').hide();
 };
 
-const openGarage = () => {
-  $('#open-garage-display').show();
-  $('#close-gararge-diplay').hide();
-  fetchItems();
-};
-
-const appendItems = (allItems) => {
+const prependItems = (allItems) => {
   allItems.forEach((item) => {
-    $('.items-list').append(
+    $('.items-list').prepend(
       `
-      <li class='garage-item'>${item.name}</li>
+      <div class='garage-item'>
+        ${item.name}
+        <p class='item-info'> Reason: ${item.whyItStays}</p>
+        <p class='cleanliness-text'> ${item.cleanliness}</p>
+        <button class='delete-btn'>X</button>
+      </div>
       `
     );
   });
@@ -48,27 +37,38 @@ const countArrayLengths = (sparklingArr, dustyArr, rancidArr) => {
   );
 };
 
-const submitNewItem = () => {
-  const name = $('.name-input').val();
-  const whyItStays = $('.whyItStays-input').val();
-  const cleanliness = $('.cleanliness-input').val();
-  addNewItems(name, whyItStays, cleanliness);
-};
-
 const itemCount = (allItems) => {
   const sparklingArr = [];
   const dustyArr = [];
   const rancidArr = [];
   allItems.map((item) => {
-    if (item.cleanliness == 'sparkling') {
+    if (item.cleanliness === 'sparkling') {
       sparklingArr.push(item.cleanliness);
-    } else if (item.cleanliness == 'dusty') {
+    } else if (item.cleanliness === 'dusty') {
       dustyArr.push(item.cleanliness);
     } else {
       rancidArr.push(item.cleanliness);
     }
   });
   countArrayLengths(sparklingArr, dustyArr, rancidArr);
+};
+
+const fetchItems = () => {
+  fetch('/api/v1/items')
+  .then((response) => {
+    return response.json();
+  })
+  .then((allItems) => {
+    clear();
+    prependItems(allItems);
+    itemCount(allItems);
+  });
+};
+
+const openGarage = () => {
+  $('#open-garage-display').show();
+  $('#close-gararge-diplay').hide();
+  fetchItems();
 };
 
 const addNewItems = (name, whyItStays, cleanliness) => {
@@ -83,13 +83,28 @@ const addNewItems = (name, whyItStays, cleanliness) => {
   });
 };
 
-const fetchItems = () => {
-  fetch('/api/v1/items')
-  .then((response) => {
-    return response.json();
-  })
-  .then((allItems) => {
-    appendItems(allItems);
-    itemCount(allItems);
-  });
+
+const clearInputs = () => {
+  const $name = $('.name-input').val('');
+  const $whyItStays = $('.whyItStays-input').val('');
 };
+
+const submitNewItem = () => {
+  const name = $('.name-input').val();
+  const whyItStays = $('.whyItStays-input').val();
+  const cleanliness = $('.cleanliness-input').val();
+  addNewItems(name, whyItStays, cleanliness);
+};
+
+$('.add-items-btn').on('click', () => {
+  submitNewItem();
+});
+
+$('.open-btn').on('click', () => {
+  openGarage();
+});
+
+$('.close-btn').on('click', () => {
+  closeGarage();
+  $('close-garage-diplay').show();
+});
