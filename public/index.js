@@ -11,22 +11,6 @@ const closeGarage = () => {
   $('#open-garage-display').hide();
 };
 
-const prependItems = (allItems) => {
-  allItems.forEach((item) => {
-    $('.items-list').prepend(
-      `
-      <div class='garage-item'>
-        ${item.name}
-        <p class='item-info'> Reason: ${item.whyItStays}</p>
-        <p class='cleanliness-text'> ${item.cleanliness}</p>
-        <button class='delete-btn'>X</button>
-      </div>
-
-      `
-    );
-  });
-};
-
 const countArrayLengths = (sparklingArr, dustyArr, rancidArr) => {
   const total = sparklingArr.length + dustyArr.length + rancidArr.length;
   $('.array-list').append(
@@ -52,6 +36,22 @@ const itemCount = (allItems) => {
     }
   });
   countArrayLengths(sparklingArr, dustyArr, rancidArr);
+};
+
+const prependItems = (allItems) => {
+  allItems.forEach((item) => {
+    $('.items-list').prepend(
+      `
+      <div class='garage-item'>
+        ${item.name}
+        <p class='item-info'> Reason: ${item.whyItStays}</p>
+        <p class='cleanliness-text'> ${item.cleanliness}</p>
+        <button class='delete-btn'>X</button>
+      </div>
+
+      `
+    );
+  });
 };
 
 const fetchItems = () => {
