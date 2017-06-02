@@ -1,95 +1,93 @@
-body{
-  height: 100%;
-  background-color: #84828F;
-  font-family: 'Raleway', sans-serif;
+body {
+  height           : 100%;
+  background-color : #84828F;
+  font-family      : 'Raleway',
+                     sans-serif;
 }
 
 h1 {
-  color: #F0F7F4;
-  text-align: center;
-  font-size: 45px;
-  font-weight: bold;
-  margin: 10px;
+  margin      : 10px;
+  color       : #F0F7F4;
+  text-align  : center;
+  font-size   : 45px;
+  font-weight : bold;
 }
 
-button{
-  background-color:#EB5160;
-  color: white;
-  border: none;
-  font-family: 'Raleway', sans-serif;
-  height: 30px;
-  padding: 10px;
-  display: table;
-  margin: 10px auto
+button {
+  display          : table;
+  height           : 30px;
+  margin           : 10px auto;
+  padding          : 10px;
+  color            : white;
+  border           : none;
+  background-color : #EB5160;
+  font-family      : 'Raleway',
+                     sans-serif;
 }
 
 .close-btn {
-  margin-top: 50px;
+  margin-top : 50px;
 }
 
 .delete-btn {
-  background-color: transparent;
+  background-color : transparent;
 }
 
-.garage-item{
-  margin-top: 10px;
-  text-align: center;
+.garage-item {
+  margin-top : 10px;
+  text-align : center;
 }
 
-.items-title{
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #F0F7F4;
+.items-title {
+  margin-top    : 20px;
+  margin-bottom : 10px;
+  color         : #F0F7F4;
+  text-align    : center;
 }
 
 .add-items {
-  display: flex;
-  justify-content: center;
+  display         : flex;
+  justify-content : center;
 }
 
 .lengths {
-  display: inline-block;
-  color: #32292F;
-  font-size: 13px;
-  margin: 5px;
+  display   : inline-block;
+  margin    : 5px;
+  color     : #32292F;
+  font-size : 13px;
 }
 
 .array-list {
-  display: flex;
-  justify-content: center;
+  display         : flex;
+  justify-content : center;
 }
 
-.name-input, .whyItStays-input {
-  margin-right: 5px;
+.name-input,
+.whyItStays-input {
+  margin-right : 5px;
 }
 
 .items-list {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display         : flex;
+  flex-wrap       : wrap;
+  justify-content : center;
 }
+
 .garage-item {
-  margin: 5px;
-  color: #F0F7F4;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  font-size: 12px;
-  border: 2px solid #F0F7F4;
-  width: 150px;
-  height: 150px;
+  display         : flex;
+  width           : 150px;
+  height          : 150px;
+  margin          : 5px;
+  color           : #F0F7F4;
+  border          : 2px solid #F0F7F4;
+  font-size       : 12px;
+  flex-direction  : column;
+  justify-content : space-around;
 }
 
-.cleanliness-text, .item-info {
-  color: #32292F;
+.cleanliness-text,
+.item-info {
+  color : #32292F;
 }
 
-
-/*
-#32292F
-#C1DBE3
-#F0F7F4
-#EB5160
-#84828F
-*/
+/* #32292F #C1DBE3 #F0F7F4 #EB5160 #84828F */
