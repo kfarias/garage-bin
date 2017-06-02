@@ -72,6 +72,11 @@ const openGarage = () => {
   fetchItems();
 };
 
+const clearInputs = () => {
+  const $name = $('.name-input').val('');
+  const $whyItStays = $('.whyItStays-input').val('');
+};
+
 const addNewItems = (name, whyItStays, cleanliness) => {
   fetch('/api/v1/items', {
     method: 'POST',
@@ -82,12 +87,6 @@ const addNewItems = (name, whyItStays, cleanliness) => {
     fetchItems();
     clearInputs();
   });
-};
-
-
-const clearInputs = () => {
-  const $name = $('.name-input').val('');
-  const $whyItStays = $('.whyItStays-input').val('');
 };
 
 const submitNewItem = () => {
