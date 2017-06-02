@@ -109,3 +109,10 @@ $('.close-btn').on('click', () => {
   closeGarage();
   $('close-garage-diplay').show();
 });
+
+$('.sort-btn').on('click', () => {
+  fetch('/api/v1/items/sort')
+  .then((response) => {
+    prependItems(response);
+  });
+});

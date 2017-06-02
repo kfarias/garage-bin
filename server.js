@@ -32,6 +32,16 @@ app.get('/api/v1/items', (request, response) => {
   });
 });
 
+app.get('/api/v1/items/sort', (request, response) => {
+  database('items').select().orderBy('name', 'asc')
+  .then((items) => {
+    response.status(200).json(items);
+  })
+  .catch((error) => {
+    response.sendStatus(500).send({ error });
+  });
+});
+
 app.get('/api/v1/items/:id', (request, response) => {
   const { id } = request.params;
   database('items').select().where('id', id)
