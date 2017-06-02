@@ -83,7 +83,6 @@ const addNewItems = (name, whyItStays, cleanliness) => {
   });
 };
 
-
 const clearInputs = () => {
   const $name = $('.name-input').val('');
   const $whyItStays = $('.whyItStays-input').val('');
