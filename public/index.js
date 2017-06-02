@@ -77,11 +77,9 @@ const addNewItems = (name, whyItStays, cleanliness) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, whyItStays, cleanliness }),
   })
-  .then((response) => {
-    return response.json();
-  })
-  .then((newItems) => {
-    appendItems(newItems);
+  .then(() => {
+    fetchItems();
+    clearInputs();
   });
 };
 
