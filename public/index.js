@@ -78,12 +78,16 @@ const addNewItems = (name, whyItStays, cleanliness) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ name, whyItStays, cleanliness }),
   })
-  .then((response) => {
-    return response.json();
-  })
-  .then((newItem) => {
-    prependItems(newItem);
+  .then(() => {
+    fetchItems();
+    clearInputs();
   });
+};
+
+
+const clearInputs = () => {
+  const $name = $('.name-input').val('');
+  const $whyItStays = $('.whyItStays-input').val('');
 };
 
 const submitNewItem = () => {
