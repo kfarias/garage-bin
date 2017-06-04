@@ -90,4 +90,8 @@ button {
   color : #32292F;
 }
 
+.sort-btns {
+  display: flex;
+}
+
 /* #32292F #C1DBE3 #F0F7F4 #EB5160 #84828F */

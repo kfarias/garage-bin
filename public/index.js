@@ -11,7 +11,7 @@ const closeGarage = () => {
   $('#open-garage-display').hide();
 };
 
-const prependItems = (allItems) => {
+const prependItemsList = (allItems) => {
   allItems.forEach((item) => {
     $('.items-list').prepend(
       `
@@ -60,7 +60,7 @@ const fetchItems = () => {
   })
   .then((allItems) => {
     clear();
-    prependItems(allItems);
+    prependItemsList(allItems);
     itemCount(allItems);
   });
 };
@@ -83,6 +83,16 @@ const addNewItems = (name, whyItStays, cleanliness) => {
   });
 };
 
+const getSingleItem = (name) => {
+  fetch(`api/v1/items/${name}`)
+    .then(response => response.json())
+    .then((item) => {
+      item.forEach((info) => {
+        prependItemsList(info.name, info.whyItStays, info.cleanliness);
+      });
+    });
+};
+
 const clearInputs = () => {
   const $name = $('.name-input').val('');
   const $whyItStays = $('.whyItStays-input').val('');
@@ -94,6 +104,51 @@ const submitNewItem = () => {
   const cleanliness = $('.cleanliness-input').val();
   addNewItems(name, whyItStays, cleanliness);
 };
+
+const prependName = (name) => {
+  $('.items-list').prepend(`
+    <div>
+      <h3 class='garage-item'>${name}</h3>
+    </div>
+  `);
+};
+
+const sortUp = () => {
+  fetch('/api/v1/sortup')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((item) => {
+      prependName(item.name);
+    });
+  })
+  .catch(e => console.log('Not sorting'));
+};
+
+const sortDown = () => {
+  fetch('/api/v1/sortdown')
+  .then(response => response.json())
+  .then((json) => {
+    json.map((item) => {
+      prependName(item.name);
+    });
+  })
+  .catch(e => console.log('Not sorting'));
+};
+
+$('.sort-up').on('click', () => {
+  clear();
+  sortUp();
+});
+
+$('.sort-down').on('click', () => {
+  clear();
+  sortDown();
+});
+
+$('.items-list').on('click', '.garage-item', (e) => {
+  const itemName = e.target.innerHTML;
+  getSingleItem(itemName);
+});
 
 $('.add-items-btn').on('click', () => {
   submitNewItem();

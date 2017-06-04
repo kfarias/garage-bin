@@ -32,14 +32,20 @@ app.get('/api/v1/items', (request, response) => {
   });
 });
 
-app.get('/api/v1/items/sort', (request, response) => {
-  database('items').select().orderBy('name', 'asc')
-  .then((items) => {
-    response.status(200).json(items);
-  })
-  .catch((error) => {
-    response.sendStatus(500).send({ error });
-  });
+app.get('/api/v1/items/:name', (request, response) => {
+  database('items').where('name', request.params.name).select()
+    .then((items) => {
+      if (!items.length) {
+        response.status(404).send({
+          error: 'That item does not exist'
+        });
+      } else {
+        response.status(200).json(items);
+      }
+    })
+    .catch(error => {
+      response.status(500).send({ error });
+    });
 });
 
 app.get('/api/v1/items/:id', (request, response) => {
@@ -51,6 +57,26 @@ app.get('/api/v1/items/:id', (request, response) => {
       } else {
         response.status(200).json(items);
       }
+    })
+    .catch((error) => {
+      response.status(500).send({ error });
+    });
+});
+
+app.get('/api/v1/sortup', (request, response) => {
+  database('items').select().orderBy('name', 'asc')
+    .then((items) => {
+      response.status(200).json(items);
+    })
+    .catch((error) => {
+      response.status(500).send({ error });
+    });
+});
+
+app.get('/api/v1/sortdown', (request, response) => {
+  database('items').select().orderBy('name', 'desc')
+    .then((items) => {
+      response.status(200).json(items);
     })
     .catch((error) => {
       response.status(500).send({ error });
