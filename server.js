@@ -32,34 +32,11 @@ app.get('/api/v1/items', (request, response) => {
   });
 });
 
-app.get('/api/v1/items/:name', (request, response) => {
-  database('items').where('name', request.params.name).select()
-    .then((items) => {
-      if (!items.length) {
-        response.status(404).send({
-          error: 'That item does not exist'
-        });
-      } else {
-        response.status(200).json(items);
-      }
-    })
-    .catch(error => {
-      response.status(500).send({ error });
-    });
-});
-
 app.get('/api/v1/items/:id', (request, response) => {
-  const { id } = request.params;
-  database('items').select().where('id', id)
-    .then((items) => {
-      if (!items.length) {
-        response.status(404).send({ error: 'No items!' });
-      } else {
-        response.status(200).json(items);
-      }
-    })
+  database('items').where('id', request.params.id).select()
+    .then(item => response.status(200).json(item))
     .catch((error) => {
-      response.status(500).send({ error });
+      response.status(404).send('NO', error);
     });
 });
 
@@ -120,6 +97,7 @@ app.put('/api/v1/items/:id/edit', (request, response) => {
 
 app.delete('/api/v1/items/:id', (request, response) => {
   const { id } = request.params;
+
   database('items').where('id', id).del()
   .then(() => {
     database('items').select()

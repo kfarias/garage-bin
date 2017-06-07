@@ -29,7 +29,7 @@ button {
   margin-top : 50px;
 }
 
-.delete-btn {
+.delete-btn, .up-arrow {
   background-color : transparent;
 }
 
@@ -73,10 +73,21 @@ button {
   justify-content : center;
 }
 
+ .edit-text {
+  position: fixed;
+  margin-top: 220px;
+  color: #F0F7F4;
+}
+
+.edit-cleanliness {
+  position: fixed;
+  margin-top: 250px;
+}
+
 .garage-item {
   display         : flex;
-  width           : 150px;
-  height          : 150px;
+  width           : 200px;
+  height          : 200px;
   margin          : 5px;
   color           : #F0F7F4;
   border          : 2px solid #F0F7F4;
@@ -85,6 +96,10 @@ button {
   justify-content : space-around;
 }
 
+/*.garage-item, .edit-cleanliness {
+  display: block;
+}*/
+
 .cleanliness-text,
 .item-info {
   color : #32292F;
@@ -92,6 +107,7 @@ button {
 
 .sort-btns {
   display: flex;
+  margin-top: 100px;
 }
 
 /* #32292F #C1DBE3 #F0F7F4 #EB5160 #84828F */
